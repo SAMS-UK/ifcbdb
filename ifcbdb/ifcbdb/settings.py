@@ -25,7 +25,7 @@ SECRET_KEY = 'ju3ugk&gwd&tf7=l!5^o(&j^5ha22yq9ov%^mx%%s4-gw0-a0#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vessel']
 
 
 # Application definition

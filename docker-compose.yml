@@ -7,7 +7,7 @@ services:
     volumes:
       - ./pyifcb:/pyifcb
       - ./ifcbdb:/ifcbdb
-      - ./static:/static
+      - ifcbdb_static:/static
       - ./ifcb_data:/data
     networks:
       - nginx_network
@@ -40,10 +40,10 @@ services:
     image: nginx:1.15
     container_name: nginx
     ports:
-      - 8000:80
+      - 9000:80
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./static:/static
+      - ifcbdb_static:/static
     depends_on:
       - ifcbdb
     networks:
@@ -57,7 +57,7 @@ services:
       - POSTGRES_PASSWORD=ifcb
       - POSTGRES_DB=ifcb
     volumes:
-      - ./pg_data:/var/lib/postgresql/data
+      - ifcbdb_pg_data:/var/lib/postgresql/data
     networks:
       - postgres_network
 
@@ -83,3 +83,7 @@ networks:
     driver: bridge
   redis_network:
     driver: bridge
+
+volumes:
+  ifcbdb_static:
+  ifcbdb_pg_data:

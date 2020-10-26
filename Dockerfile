@@ -33,9 +33,9 @@ RUN conda env update -n root -f merged-environment.yml
 WORKDIR /pyifcb
 RUN python setup.py develop
 
-EXPOSE 8000
+EXPOSE 9000
 
 # descend into app directory
 WORKDIR /ifcbdb
 
-CMD gunicorn --bind :8000 ifcbdb.wsgi:application --reload
+CMD gunicorn --bind :9000 ifcbdb.wsgi:application --reload
